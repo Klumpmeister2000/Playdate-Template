@@ -10,6 +10,9 @@ class("Ball").extends(gfx.sprite)
 function Ball:init()
 
   Ball.super.init(self)
+
+  self.xSpeed = 5
+  
   radius = 5
   local ballImage = gfx.image.new(2 * radius, 2 * radius)
   gfx.pushContext(ballImage)
@@ -20,7 +23,11 @@ function Ball:init()
 end
 
 function Ball:update()
-    self:moveBy(1, 0)
+-- screen width = 400px
+    if self.x + self.xSpeed >= then
+        self.xSpeed *= -1
+    elseif self.x + self.xSpeed <= 0 then
+        self.xSpeed *= -1
 end
 
 ball = Ball()
