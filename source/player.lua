@@ -1,3 +1,5 @@
+import "bullet"
+
 local pd <const> = playdate
 local gfx <const> = playdate.graphics
 
@@ -21,5 +23,9 @@ function Player:update()
         if self.y < 240 then
             self:moveBy(0, self.speed)
         end
+    end
+
+    if pd.buttonIsPressed(pd.kButtonA) then
+        Bullet(self.x, self.y, 5)
     end
 end
