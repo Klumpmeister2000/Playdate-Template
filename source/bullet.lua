@@ -25,6 +25,7 @@ function Bullet:update()
             if collidedObject:isa(Enemy) then
                 collidedObject:remove()
                 incrementScore()
+                setShakeAmount(5)
             end
         end
         self:remove()
