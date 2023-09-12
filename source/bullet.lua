@@ -24,6 +24,7 @@ function Bullet:update()
             local collidedObject = collision['other']
             if collidedObject:isa(Enemy) then
                 collidedObject:remove()
+                incrementScore()
             end
         end
         self:remove()
