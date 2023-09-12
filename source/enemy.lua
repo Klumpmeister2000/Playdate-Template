@@ -16,6 +16,9 @@ end
 
 function Enemy:update()
     self:moveBy(-self.moveSpeed, 0)
+    if self.x < 0 then
+        resetGame()
+    end
 end
 
 function Enemy:collisionResponse()
