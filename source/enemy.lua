@@ -9,9 +9,15 @@ function Enemy:init(x, y, moveSpeed)
     self:moveTo(x, y)
     self:add()
 
+    self:setCollideRect(0, 0, self:getSize())
+
     self.moveSpeed = moveSpeed
 end
 
 function Enemy:update()
     self:moveBy(-self.moveSpeed, 0)
+end
+
+function Enemy:collisionResponse()
+    return "overlap"
 end

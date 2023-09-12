@@ -18,5 +18,14 @@ function Bullet:init(x, y, speed)
 end
 
 function Bullet:update()
-    self:moveWithCollisions(self.x + self.speed, self.y)
+    local actualX, ActualY, collisions, length = self:moveWithCollisions(self.x + self.speed, self.y)
+    if length > 0 then
+        for index, collision in pairs(collisions) do
+            local collidedObject = collision['other']
+            if collidedObject:isa(Enemy) then
+                collidedObject:remove()
+            end
+        end
+        self:remove()
+    end    
 end
